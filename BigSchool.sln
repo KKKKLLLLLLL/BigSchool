@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigSchool", "BigSchool\BigSchool.csproj", "{2C597ABD-F9F3-4691-A904-D9FC7442FE45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigSchoolLDK", "BigSchoolLDK\BigSchoolLDK.csproj", "{76E8457B-E8A4-4251-81B4-340A3EFDCBEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{2C597ABD-F9F3-4691-A904-D9FC7442FE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C597ABD-F9F3-4691-A904-D9FC7442FE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C597ABD-F9F3-4691-A904-D9FC7442FE45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E8457B-E8A4-4251-81B4-340A3EFDCBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E8457B-E8A4-4251-81B4-340A3EFDCBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E8457B-E8A4-4251-81B4-340A3EFDCBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E8457B-E8A4-4251-81B4-340A3EFDCBEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E9552732-93D1-4D0A-866B-C9A710F20BCC}
 	EndGlobalSection
 EndGlobal

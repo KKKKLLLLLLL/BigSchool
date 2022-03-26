@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace BigSchool.Models
+namespace BigSchool_1911062358.Models
 {
     public class Course
     {
