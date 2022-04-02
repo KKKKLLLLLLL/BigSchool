@@ -1,10 +1,12 @@
-﻿using System;
+﻿using BigSchoolLDK.Models;
+using BigSchoolLDK.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BigSchoolLDK.Models;
-using System.Data.Entity;
+
 
 namespace BigSchoolLDK.Controllers
 {
@@ -22,7 +24,13 @@ namespace BigSchoolLDK.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourses);
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+            //return View(upcommingCourses);
         }
 
         public ActionResult About()

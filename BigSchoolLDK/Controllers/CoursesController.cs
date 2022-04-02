@@ -1,16 +1,18 @@
-﻿using System;
+﻿using BigSchoolLDK.Models;
+using BigSchoolLDK.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BigSchoolLDK.Models;
-using BigSchoolLDK.ViewModels;
+using System.Data.Entity;
 using Microsoft.AspNet.Identity;
 
 namespace BigSchoolLDK.Controllers
 {
     public class CoursesController : Controller
     {
+        // GET: Courses
         private readonly ApplicationDbContext _dbContext;
         public CoursesController()
         {
@@ -36,6 +38,7 @@ namespace BigSchoolLDK.Controllers
                 viewModel.Categories = _dbContext.Categories.ToList();
                 return View("Create", viewModel);
             }
+
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
@@ -45,7 +48,27 @@ namespace BigSchoolLDK.Controllers
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
+
             return RedirectToAction("Index", "Home");
+        }
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var courses = _dbContext.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
     }
 }
